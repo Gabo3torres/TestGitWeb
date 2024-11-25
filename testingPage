@@ -1,0 +1,212 @@
+<body>
+
+    <h1>Cuestionario de Innovación Empresarial</h1>
+    <form id="innovacion-form" method="post">
+
+        <h2>Sección 3: Estrategia, Cultura y estructura organizacional</h2>
+
+        <p>1. ¿Su empresa tiene una estrategia formal y documentada para la gestión de la innovación?</p>
+        <input type="radio" id="est-informal" name="estrategia-innovacion" value="No hay una estrategia formal">
+        <label for="est-informal">No hay una estrategia formal.</label><br>
+        <input type="radio" id="est-evaluacion" name="estrategia-innovacion"
+            value="Hay una estrategia en proceso de evaluación">
+        <label for="est-evaluacion">Hay una estrategia en proceso de evaluación.</label><br>
+        <input type="radio" id="est-doc-no-imp" name="estrategia-innovacion"
+            value="Existe una estrategia documentada pero no se ha implementado">
+        <label for="est-doc-no-imp">Existe una estrategia documentada pero no se ha implementado.</label><br>
+        <input type="radio" id="est-implementada" name="estrategia-innovacion"
+            value="La estrategia está implementada y se mide su progreso">
+        <label for="est-implementada">La estrategia está implementada y se mide su progreso.</label><br>
+        <input type="radio" id="est-otro" name="estrategia-innovacion" value="otro">
+        <label for="est-otro">Otros:</label>
+        <input type="text" id="est-otro-especificar" name="estrategia-innovacion-otro">
+
+        <p>2. ¿Cómo clasificaría principalmente el enfoque de innovación de su empresa?</p>
+        <input type="radio" id="enf-interno" name="enfoque-innovacion" value="Interno">
+        <label for="enf-interno">Interno</label><br>
+        <input type="radio" id="enf-externo" name="enfoque-innovacion" value="Externo">
+        <label for="enf-externo">Externo</label><br>
+        <input type="radio" id="enf-mixto" name="enfoque-innovacion" value="Mixto (interno y externo)">
+        <label for="enf-mixto">Mixto (interno y externo)</label><br>
+        <input type="radio" id="enf-ninguno" name="enfoque-innovacion" value="Ninguna">
+        <label for="enf-ninguno">Ninguna</label><br>
+
+        <p>3. ¿Cómo se integra la estrategia de innovación con la estrategia general de la empresa?</p>
+        <input type="radio" id="int-no-hay" name="integracion-estrategias" value="No hay integración">
+        <label for="int-no-hay">No hay integración.</label><br>
+        <input type="radio" id="int-evaluando" name="integracion-estrategias" value="Estamos evaluando la integración">
+        <label for="int-evaluando">Estamos evaluando la integración.</label><br>
+        <input type="radio" id="int-nivel-empresa" name="integracion-estrategias"
+            value="Integración a nivel de la empresa">
+        <label for="int-nivel-empresa">Integración a nivel de la empresa.</label><br>
+        <input type="radio" id="int-nivel-emp-unidad" name="integracion-estrategias"
+            value="Integración a nivel de la empresa y de las unidades de negocio">
+        <label for="int-nivel-emp-unidad">Integración a nivel de la empresa y de las unidades de
+            negocio.</label><br>
+        <input type="radio" id="int-impulsor-clave" name="integracion-estrategias"
+            value="Es un impulsor clave del valor empresarial">
+        <label for="int-impulsor-clave">Es un impulsor clave del valor empresarial.</label><br>
+
+        <p>4. En términos del enfoque y los procesos establecidos para gestionar la innovación en su empresa, ¿en
+            cuál de las siguientes etapas se encontrarían?</p>
+        <input type="radio" id="enfoque-no-formal" name="enfoque-gestion-innovacion"
+            value="No hay un enfoque o procesos formales establecidos para gestionar la innovación">
+        <label for="enfoque-no-formal">No hay un enfoque o procesos formales establecidos para gestionar la
+            innovación.</label><br>
+        <input type="radio" id="enfoque-basico" name="enfoque-gestion-innovacion"
+            value="Existe un enfoque básico, con algunos procesos y métricas informales para la innovación">
+        <label for="enfoque-basico">Existe un enfoque básico, con algunos procesos y métricas informales para la
+            innovación.</label><br>
+        <input type="radio" id="enfoque-estandarizado" name="enfoque-gestion-innovacion"
+            value="Hay procesos estandarizados para la gestión de la innovación y cierta integración con la estrategia de la empresa">
+        <label for="enfoque-estandarizado">Hay procesos estandarizados para la gestión de la innovación y cierta
+            integración con la estrategia de la empresa.</label><br>
+        <input type="radio" id="enfoque-integrado" name="enfoque-gestion-innovacion"
+            value="Los procesos de innovación están integrados, con métricas definidas y una gestión formal del portafolio de innovación">
+        <label for="enfoque-integrado">Los procesos de innovación están integrados, con métricas definidas y una
+            gestión formal del portafolio de innovación.</label><br>
+        <input type="radio" id="enfoque-optimizado" name="enfoque-gestion-innovacion"
+            value="La innovación es un proceso optimizado, adaptativo y completamente alineado con los objetivos estratégicos de la empresa">
+        <label for="enfoque-optimizado">La innovación es un proceso optimizado, adaptativo y completamente alineado
+            con los objetivos estratégicos de la empresa.</label><br>
+
+        <p>5. ¿La empresa ha generado iniciativas de innovación organizativas para que mejoren la eficiencia y la
+            flexibilidad interna?</p>
+        <input type="checkbox" id="rediseno-estructuras" name="iniciativas-innovacion[]"
+            value="Rediseñando estructuras organizativas">
+        <label for="rediseno-estructuras">Rediseñando estructuras organizativas.</label><br>
+        <input type="checkbox" id="colaboracion-interdepartamental" name="iniciativas-innovacion[]"
+            value="Fomentando la colaboración interdepartamental">
+        <label for="colaboracion-interdepartamental">Fomentando la colaboración interdepartamental.</label><br>
+        <input type="checkbox" id="gestion-conocimiento" name="iniciativas-innovacion[]"
+            value="Implementando prácticas de gestión del conocimiento">
+        <label for="gestion-conocimiento">Implementando prácticas de gestión del conocimiento.</label><br>
+        <input type="checkbox" id="mejora-procesos" name="iniciativas-innovacion[]"
+            value="Mejorando los procesos de toma de decisiones">
+        <label for="mejora-procesos">Mejorando los procesos de toma de decisiones.</label><br>
+        <label for="otra-iniciativa">Otro:</label>
+        <input type="text" id="iniciativas-innovacion-otro" name="iniciativas-innovacion-otro"><br>
+
+        <button type="submit">Enviar</button>
+
+    </form>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        const supabaseUrl = 'https://zbfffnmdafhjzyoxjidb.supabase.co';
+        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpiZmZmbm1kYWZoanp5b3hqaWRiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzI0MTQ4MDQsImV4cCI6MjA0Nzk5MDgwNH0.QuwCs7R2AZEqyPtPxoXtWYodAyOOigmTmPE-w2AWz7w';
+        const supabase1 = supabase.createClient(supabaseUrl, supabaseKey);
+
+        async function insertarFormulario(respuestasCheckboxes) {
+            try {
+                // Inserta en la tabla principal de Supabase
+                // const { data, error } = await supabase1
+                //     .from('cuestionario_innovacion')
+                //     .insert([datosFormulario])
+                //     .select();
+
+                // if (error) {
+                //     throw error;
+                // }
+
+                const cuestionarioId = 2;  // ID del cuestionario insertado
+
+                // // Inserta las respuestas de checkboxes vinculadas al cuestionario
+                const respuestasConId = respuestasCheckboxes.map(respuesta => ({
+                    ...respuesta,
+                    cuestionario_id: cuestionarioId  // Enlaza las respuestas al cuestionario
+                }));
+
+                if (respuestasConId.length > 0) {
+                    const { error: errorCheckboxes } = await supabase1
+                        .from('respuestas_opciones')  // Asegúrate de que esta es tu tabla en Supabase
+                        .insert(respuestasConId);
+
+                    if (errorCheckboxes) {
+                        throw errorCheckboxes;
+                    }
+                }
+
+                alert('Formulario enviado correctamente');
+                e.target.reset();  // Limpia el formulario
+
+            } catch (error) {
+                console.error('Error al insertar datos:', error);
+                alert('Error al enviar el formulario');
+            }
+        }
+
+        document.getElementById('innovacion-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(e.target);
+
+            // Captura de datos principales del formulario (texto, números, radio buttons)
+            const datosFormulario = {};
+            formData.forEach((value, key) => {
+                if (value === 'si') {
+                    datosFormulario[key] = true; // Convierte "si" a true
+                } else if (value === 'no') {
+                    datosFormulario[key] = false; // Convierte "no" a false
+                } else if (!isNaN(value) && value.trim() !== '') {
+                    datosFormulario[key] = parseInt(value); // Convierte números
+                } else {
+                    datosFormulario[key] = value; // Campos de texto
+                }
+            });
+
+            // Captura de checkboxes seleccionados, incluyendo "Otro"
+            const respuestasCheckboxes = [];
+            document.querySelectorAll('input[type="checkbox"]:checked').forEach((checkbox) => {
+                const grupo = checkbox.name.replace('[]', '');
+                const valor = checkbox.value;
+
+                if (valor === 'Otro') {
+                    // Captura el valor del campo de texto asociado con "Otro"
+                    const campoOtro = document.querySelector(`#${grupo}-otro`);
+                    if (campoOtro && campoOtro.value.trim() !== '') {
+                        respuestasCheckboxes.push({
+                            pregunta: grupo,
+                            opcion: campoOtro.value.trim()
+                        });
+                    }
+                } else {
+                    respuestasCheckboxes.push({
+                        pregunta: grupo,
+                        opcion: valor
+                    });
+                }
+            });
+
+            // Captura de radio buttons seleccionados
+            document.querySelectorAll('input[type="radio"]:checked').forEach((radio) => {
+                respuestasCheckboxes.push({
+                    pregunta: radio.name,  // El nombre del grupo de radio buttons
+                    opcion: radio.value    // La opción seleccionada
+                });
+            });
+
+
+            // Captura de campos de texto "Otro" asociados a grupos
+            document.querySelectorAll('input[type="text"]').forEach((input) => {
+                const name = input.name;
+
+                // Verifica si el campo pertenece a un grupo relacionado con checkboxes/radio y no está vacío
+                if (name.includes('-otro') && input.value.trim() !== '') {
+                    const grupo = name.replace('-otro', '').replace('[]', '');  // Elimina '-otro' y corchetes si existen
+                    respuestasCheckboxes.push({
+                        pregunta: grupo,
+                        opcion: input.value.trim()  // Agrega el valor del campo de texto
+                    });
+                }
+            });
+
+            // Envía los datos a Supabase
+            await insertarFormulario(respuestasCheckboxes);
+        });
+
+
+
+    </script>
+</body>
