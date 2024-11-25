@@ -21,54 +21,236 @@
         <label for="est-otro">Otros:</label>
         <input type="text" id="est-otro-especificar" name="estrategia-innovacion-otro">
 
-        <p>2. ¿Cómo clasificaría principalmente el enfoque de innovación de su empresa?</p>
-        <input type="radio" id="enf-interno" name="enfoque-innovacion" value="Interno">
-        <label for="enf-interno">Interno</label><br>
-        <input type="radio" id="enf-externo" name="enfoque-innovacion" value="Externo">
-        <label for="enf-externo">Externo</label><br>
-        <input type="radio" id="enf-mixto" name="enfoque-innovacion" value="Mixto (interno y externo)">
-        <label for="enf-mixto">Mixto (interno y externo)</label><br>
-        <input type="radio" id="enf-ninguno" name="enfoque-innovacion" value="Ninguna">
-        <label for="enf-ninguno">Ninguna</label><br>
-
-        <p>3. ¿Cómo se integra la estrategia de innovación con la estrategia general de la empresa?</p>
-        <input type="radio" id="int-no-hay" name="integracion-estrategias" value="No hay integración">
-        <label for="int-no-hay">No hay integración.</label><br>
-        <input type="radio" id="int-evaluando" name="integracion-estrategias" value="Estamos evaluando la integración">
-        <label for="int-evaluando">Estamos evaluando la integración.</label><br>
-        <input type="radio" id="int-nivel-empresa" name="integracion-estrategias"
-            value="Integración a nivel de la empresa">
-        <label for="int-nivel-empresa">Integración a nivel de la empresa.</label><br>
-        <input type="radio" id="int-nivel-emp-unidad" name="integracion-estrategias"
-            value="Integración a nivel de la empresa y de las unidades de negocio">
-        <label for="int-nivel-emp-unidad">Integración a nivel de la empresa y de las unidades de
-            negocio.</label><br>
-        <input type="radio" id="int-impulsor-clave" name="integracion-estrategias"
-            value="Es un impulsor clave del valor empresarial">
-        <label for="int-impulsor-clave">Es un impulsor clave del valor empresarial.</label><br>
-
-        <p>4. En términos del enfoque y los procesos establecidos para gestionar la innovación en su empresa, ¿en
-            cuál de las siguientes etapas se encontrarían?</p>
-        <input type="radio" id="enfoque-no-formal" name="enfoque-gestion-innovacion"
-            value="No hay un enfoque o procesos formales establecidos para gestionar la innovación">
-        <label for="enfoque-no-formal">No hay un enfoque o procesos formales establecidos para gestionar la
-            innovación.</label><br>
-        <input type="radio" id="enfoque-basico" name="enfoque-gestion-innovacion"
-            value="Existe un enfoque básico, con algunos procesos y métricas informales para la innovación">
-        <label for="enfoque-basico">Existe un enfoque básico, con algunos procesos y métricas informales para la
-            innovación.</label><br>
-        <input type="radio" id="enfoque-estandarizado" name="enfoque-gestion-innovacion"
-            value="Hay procesos estandarizados para la gestión de la innovación y cierta integración con la estrategia de la empresa">
-        <label for="enfoque-estandarizado">Hay procesos estandarizados para la gestión de la innovación y cierta
-            integración con la estrategia de la empresa.</label><br>
-        <input type="radio" id="enfoque-integrado" name="enfoque-gestion-innovacion"
-            value="Los procesos de innovación están integrados, con métricas definidas y una gestión formal del portafolio de innovación">
-        <label for="enfoque-integrado">Los procesos de innovación están integrados, con métricas definidas y una
-            gestión formal del portafolio de innovación.</label><br>
-        <input type="radio" id="enfoque-optimizado" name="enfoque-gestion-innovacion"
-            value="La innovación es un proceso optimizado, adaptativo y completamente alineado con los objetivos estratégicos de la empresa">
-        <label for="enfoque-optimizado">La innovación es un proceso optimizado, adaptativo y completamente alineado
-            con los objetivos estratégicos de la empresa.</label><br>
+        <p>5. Durante los años 2021 a 2023, ¿qué organizaciones colaboraron con su empresa en actividades de
+            innovación para el desarrollo de productos o procesos? En caso afirmativo, ¿cuál fue el propósito de
+            esta colaboración?</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Actor</th>
+                    <th>Frecuencia*</th>
+                    <th>I+D (Investigación y Desarrollo)</th>
+                    <th>Ingeniería y Diseño</th>
+                    <th>Capacitación</th>
+                    <th>Asistencia técnica</th>
+                    <th>RSC</th>
+                    <th>Pruebas de productos</th>
+                    <th>Financiamiento</th>
+                    <th>Exposición de Marca</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>a. Clientes y consumidores</td>
+                    <td>
+                        <select name="frecuencia-clientes">
+                            <option value="0">Nunca</option>
+                            <option value="1">Rara vez (cada varios años)</option>
+                            <option value="2">Ocasionalmente (algunas veces al año)</option>
+                            <option value="3">Frecuentemente (al menos una vez entre 1 a 3 meses)</option>
+                        </select>
+                    </td>
+                    <td><input type="checkbox" name="clientes-id"></td>
+                    <td><input type="checkbox" name="clientes-ingenieria"></td>
+                    <td><input type="checkbox" name="clientes-capacitacion"></td>
+                    <td><input type="checkbox" name="clientes-asistencia"></td>
+                    <td><input type="checkbox" name="clientes-rsc"></td>
+                    <td><input type="checkbox" name="clientes-pruebas"></td>
+                    <td><input type="checkbox" name="clientes-financiamiento"></td>
+                    <td><input type="checkbox" name="clientes-marca"></td>
+                </tr>
+                <tr>
+                    <td>b. Competidores</td>
+                    <td>
+                        <select name="frecuencia-competidores">
+                            <option value="0">Nunca</option>
+                            <option value="1">Rara vez (cada varios años)</option>
+                            <option value="2">Ocasionalmente (algunas veces al año)</option>
+                            <option value="3">Frecuentemente (al menos una vez entre 1 a 3 meses)</option>
+                        </select>
+                    </td>
+                    <td><input type="checkbox" name="competidores-id"></td>
+                    <td><input type="checkbox" name="competidores-ingenieria"></td>
+                    <td><input type="checkbox" name="competidores-capacitacion"></td>
+                    <td><input type="checkbox" name="competidores-asistencia"></td>
+                    <td><input type="checkbox" name="competidores-rsc"></td>
+                    <td><input type="checkbox" name="competidores-pruebas"></td>
+                    <td><input type="checkbox" name="competidores-financiamiento"></td>
+                    <td><input type="checkbox" name="competidores-marca"></td>
+                </tr>
+                <tr>
+                    <td>c. Proveedores</td>
+                    <td>
+                        <select name="frecuencia-proveedores">
+                            <option value="0">Nunca</option>
+                            <option value="1">Rara vez (cada varios años)</option>
+                            <option value="2">Ocasionalmente (algunas veces al año)</option>
+                            <option value="3">Frecuentemente (al menos una vez entre 1 a 3 meses)</option>
+                        </select>
+                    </td>
+                    <td><input type="checkbox" name="proveedores-id"></td>
+                    <td><input type="checkbox" name="proveedores-ingenieria"></td>
+                    <td><input type="checkbox" name="proveedores-capacitacion"></td>
+                    <td><input type="checkbox" name="proveedores-asistencia"></td>
+                    <td><input type="checkbox" name="proveedores-rsc"></td>
+                    <td><input type="checkbox" name="proveedores-pruebas"></td>
+                    <td><input type="checkbox" name="proveedores-financiamiento"></td>
+                    <td><input type="checkbox" name="proveedores-marca"></td>
+                </tr>
+                <tr>
+                    <td>d. Consultores</td>
+                    <td>
+                        <select name="frecuencia-consultores">
+                            <option value="0">Nunca</option>
+                            <option value="1">Rara vez (cada varios años)</option>
+                            <option value="2">Ocasionalmente (algunas veces al año)</option>
+                            <option value="3">Frecuentemente (al menos una vez entre 1 a 3 meses)</option>
+                        </select>
+                    </td>
+                    <td><input type="checkbox" name="consultores-id"></td>
+                    <td><input type="checkbox" name="consultores-ingenieria"></td>
+                    <td><input type="checkbox" name="consultores-capacitacion"></td>
+                    <td><input type="checkbox" name="consultores-asistencia"></td>
+                    <td><input type="checkbox" name="consultores-rsc"></td>
+                    <td><input type="checkbox" name="consultores-pruebas"></td>
+                    <td><input type="checkbox" name="consultores-financiamiento"></td>
+                    <td><input type="checkbox" name="consultores-marca"></td>
+                </tr>
+                <tr>
+                    <td>e. Universidades</td>
+                    <td>
+                        <select name="frecuencia-universidades">
+                            <option value="0">Nunca</option>
+                            <option value="1">Rara vez (cada varios años)</option>
+                            <option value="2">Ocasionalmente (algunas veces al año)</option>
+                            <option value="3">Frecuentemente (al menos una vez entre 1 a 3 meses)</option>
+                        </select>
+                    </td>
+                    <td><input type="checkbox" name="universidades-id"></td>
+                    <td><input type="checkbox" name="universidades-ingenieria"></td>
+                    <td><input type="checkbox" name="universidades-capacitacion"></td>
+                    <td><input type="checkbox" name="universidades-asistencia"></td>
+                    <td><input type="checkbox" name="universidades-rsc"></td>
+                    <td><input type="checkbox" name="universidades-pruebas"></td>
+                    <td><input type="checkbox" name="universidades-financiamiento"></td>
+                    <td><input type="checkbox" name="universidades-marca"></td>
+                </tr>
+                <tr>
+                    <td>f. Laboratorios/Empresas de I+D</td>
+                    <td>
+                        <select name="frecuencia-laboratorios">
+                            <option value="0">Nunca</option>
+                            <option value="1">Rara vez (cada varios años)</option>
+                            <option value="2">Ocasionalmente (algunas veces al año)</option>
+                            <option value="3">Frecuentemente (al menos una vez entre 1 a 3 meses)</option>
+                        </select>
+                    </td>
+                    <td><input type="checkbox" name="laboratorios-id"></td>
+                    <td><input type="checkbox" name="laboratorios-ingenieria"></td>
+                    <td><input type="checkbox" name="laboratorios-capacitacion"></td>
+                    <td><input type="checkbox" name="laboratorios-asistencia"></td>
+                    <td><input type="checkbox" name="laboratorios-rsc"></td>
+                    <td><input type="checkbox" name="laboratorios-pruebas"></td>
+                    <td><input type="checkbox" name="laboratorios-financiamiento"></td>
+                    <td><input type="checkbox" name="laboratorios-marca"></td>
+                </tr>
+                <tr>
+                    <td>g. Oficina de propiedad intelectual</td>
+                    <td>
+                        <select name="frecuencia-propiedad-intelectual">
+                            <option value="0">Nunca</option>
+                            <option value="1">Rara vez (cada varios años)</option>
+                            <option value="2">Ocasionalmente (algunas veces al año)</option>
+                            <option value="3">Frecuentemente (al menos una vez entre 1 a 3 meses)</option>
+                        </select>
+                    </td>
+                    <td><input type="checkbox" name="propiedad-intelectual-id"></td>
+                    <td><input type="checkbox" name="propiedad-intelectual-ingenieria"></td>
+                    <td><input type="checkbox" name="propiedad-intelectual-capacitacion"></td>
+                    <td><input type="checkbox" name="propiedad-intelectual-asistencia"></td>
+                    <td><input type="checkbox" name="propiedad-intelectual-rsc"></td>
+                    <td><input type="checkbox" name="propiedad-intelectual-pruebas"></td>
+                    <td><input type="checkbox" name="propiedad-intelectual-financiamiento"></td>
+                    <td><input type="checkbox" name="propiedad-intelectual-marca"></td>
+                </tr>
+                <tr>
+                    <td>h. Otras empresas relacionadas</td>
+                    <td>
+                        <select name="frecuencia-otras-empresas">
+                            <option value="0">Nunca</option>
+                            <option value="1">Rara vez (cada varios años)</option>
+                            <option value="2">Ocasionalmente (algunas veces al año)</option>
+                            <option value="3">Frecuentemente (al menos una vez entre 1 a 3 meses)</option>
+                        </select>
+                    </td>
+                    <td><input type="checkbox" name="otras-empresas-id"></td>
+                    <td><input type="checkbox" name="otras-empresas-ingenieria"></td>
+                    <td><input type="checkbox" name="otras-empresas-capacitacion"></td>
+                    <td><input type="checkbox" name="otras-empresas-asistencia"></td>
+                    <td><input type="checkbox" name="otras-empresas-rsc"></td>
+                    <td><input type="checkbox" name="otras-empresas-pruebas"></td>
+                    <td><input type="checkbox" name="otras-empresas-financiamiento"></td>
+                    <td><input type="checkbox" name="otras-empresas-marca"></td>
+                </tr>
+                <tr>
+                    <td>i. Otras empresas del grupo o casa matriz</td>
+                    <td>
+                        <select name="frecuencia-empresas-grupo">
+                            <option value="0">Nunca</option>
+                            <option value="1">Rara vez (cada varios años)</option>
+                            <option value="2">Ocasionalmente (algunas veces al año)</option>
+                            <option value="3">Frecuentemente (al menos una vez entre 1 a 3 meses)</option>
+                        </select>
+                    </td>
+                    <td><input type="checkbox" name="empresas-grupo-id"></td>
+                    <td><input type="checkbox" name="empresas-grupo-ingenieria"></td>
+                    <td><input type="checkbox" name="empresas-grupo-capacitacion"></td>
+                    <td><input type="checkbox" name="empresas-grupo-asistencia"></td>
+                    <td><input type="checkbox" name="empresas-grupo-rsc"></td>
+                    <td><input type="checkbox" name="empresas-grupo-pruebas"></td>
+                    <td><input type="checkbox" name="empresas-grupo-financiamiento"></td>
+                    <td><input type="checkbox" name="empresas-grupo-marca"></td>
+                </tr>
+                <tr>
+                    <td>j. Startups</td>
+                    <td>
+                        <select name="frecuencia-startups">
+                            <option value="0">Nunca</option>
+                            <option value="1">Rara vez (cada varios años)</option>
+                            <option value="2">Ocasionalmente (algunas veces al año)</option>
+                            <option value="3">Frecuentemente (al menos una vez entre 1 a 3 meses)</option>
+                        </select>
+                    </td>
+                    <td><input type="checkbox" name="startups-id"></td>
+                    <td><input type="checkbox" name="startups-ingenieria"></td>
+                    <td><input type="checkbox" name="startups-capacitacion"></td>
+                    <td><input type="checkbox" name="startups-asistencia"></td>
+                    <td><input type="checkbox" name="startups-rsc"></td>
+                    <td><input type="checkbox" name="startups-pruebas"></td>
+                    <td><input type="checkbox" name="startups-financiamiento"></td>
+                    <td><input type="checkbox" name="startups-marca"></td>
+                </tr>
+                <tr>
+                    <td>k. Gobierno</td>
+                    <td>
+                        <select name="frecuencia-gobierno">
+                            <option value="0">Nunca</option>
+                            <option value="1">Rara vez (cada varios años)</option>
+                            <option value="2">Ocasionalmente (algunas veces al año)</option>
+                            <option value="3">Frecuentemente (al menos una vez entre 1 a 3 meses)</option>
+                        </select>
+                    </td>
+                    <td><input type="checkbox" name="gobierno-id"></td>
+                    <td><input type="checkbox" name="gobierno-ingenieria"></td>
+                    <td><input type="checkbox" name="gobierno-capacitacion"></td>
+                    <td><input type="checkbox" name="gobierno-asistencia"></td>
+                    <td><input type="checkbox" name="gobierno-rsc"></td>
+                    <td><input type="checkbox" name="gobierno-pruebas"></td>
+                    <td><input type="checkbox" name="gobierno-financiamiento"></td>
+                    <td><input type="checkbox" name="gobierno-marca"></td>
+                </tr>
+            </tbody>
+        </table>
 
         <p>5. ¿La empresa ha generado iniciativas de innovación organizativas para que mejoren la eficiencia y la
             flexibilidad interna?</p>
@@ -137,6 +319,33 @@
             }
         }
 
+        // Función para insertar colaboraciones en Supabase
+        async function insertarColaboraciones(colaboraciones) {
+            try {
+                const cuestionarioId = 2;  // Cambia esto por el ID real del cuestionario
+
+                // Agrega el ID del cuestionario a cada colaboración
+                const colaboracionesConId = colaboraciones.map(colab => ({
+                    ...colab,
+                    cuestionario_id: cuestionarioId  // Enlaza cada colaboración al cuestionario principal
+                }));
+
+                // Inserta en Supabase
+                const { error } = await supabase1
+                    .from('colaboraciones_innovacion')  // Nombre de la tabla en Supabase
+                    .insert(colaboracionesConId);
+
+                if (error) {
+                    throw error;
+                }
+
+                alert('Colaboraciones enviadas correctamente');
+            } catch (error) {
+                console.error('Error al insertar colaboraciones:', error);
+                alert('Error al enviar las colaboraciones');
+            }
+        }
+
         document.getElementById('innovacion-form').addEventListener('submit', async (e) => {
             e.preventDefault();
 
@@ -200,13 +409,52 @@
                         opcion: input.value.trim()  // Agrega el valor del campo de texto
                     });
                 }
+            }); // Array para almacenar colaboraciones
+            const colaboraciones = [];
+
+            // Actores de la tabla
+            const actores = ['clientes', 'competidores', 'proveedores', 'consultores', 'universidades',
+                'laboratorios', 'propiedad-intelectual', 'otras-empresas',
+                'empresas-grupo', 'startups', 'gobierno'];
+
+            // Propósitos (columnas) que corresponden a los checkboxes
+            const propositos = ['id', 'ingenieria', 'capacitacion', 'asistencia', 'rsc', 'pruebas', 'financiamiento', 'marca'];
+
+            // Recorre cada actor y captura la información relacionada
+            actores.forEach((actor) => {
+                const frecuencia = formData.get(`frecuencia-${actor}`);  // Captura la frecuencia seleccionada
+
+                propositos.forEach((proposito) => {
+                    // Verifica si el checkbox está marcado
+                    if (formData.get(`${actor}-${proposito}`)) {
+                        colaboraciones.push({
+                            tipo_colaborador: actor.replace(/-/g, ' '),   // Reemplaza guiones por espacios (ej. "otras-empresas" -> "otras empresas")
+                            frecuencia: obtenerFrecuenciaTexto(frecuencia),  // Convierte el valor numérico de frecuencia a texto
+                            proposito: proposito                           // Propósito relacionado
+                        });
+                    }
+                });
             });
+
+            // Envía los datos a Supabase
+            await insertarColaboraciones(colaboraciones);
+
+
+
 
             // Envía los datos a Supabase
             await insertarFormulario(respuestasCheckboxes);
         });
 
-
+        function obtenerFrecuenciaTexto(valor) {
+            switch (valor) {
+                case '0': return 'Nunca';
+                case '1': return 'Rara vez (cada varios años)';
+                case '2': return 'Ocasionalmente (algunas veces al año)';
+                case '3': return 'Frecuentemente (al menos una vez entre 1 a 3 meses)';
+                default: return 'Desconocido';  // Por si hay un valor inesperado
+            }
+        }
 
     </script>
 </body>
