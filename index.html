@@ -1575,7 +1575,7 @@
             const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpiZmZmbm1kYWZoanp5b3hqaWRiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzI0MTQ4MDQsImV4cCI6MjA0Nzk5MDgwNH0.QuwCs7R2AZEqyPtPxoXtWYodAyOOigmTmPE-w2AWz7w';
             const supabase1 = supabase.createClient(supabaseUrl, supabaseKey);
 
-            async function insertarFormulario(datosFormulario, respuestasCheckboxes) {
+            async function insertarFormulario(datosFormulario, respuestasCheckboxes, colaboraciones, e) {
                 try {
                     // Inserta en la tabla principal de Supabase
                     const { data, error } = await supabase1
@@ -1589,30 +1589,59 @@
 
                     const cuestionarioId = data[0].id;  // ID del cuestionario insertado
 
-                    // Inserta las respuestas de checkboxes vinculadas al cuestionario
-                    const respuestasConId = respuestasCheckboxes.map(respuesta => ({
-                        ...respuesta,
-                        cuestionario_id: cuestionarioId  // Enlaza las respuestas al cuestionario
-                    }));
+                    try {
+                        // Inserta las respuestas de checkboxes vinculadas al cuestionario
+                        const respuestasConId = respuestasCheckboxes.map(respuesta => ({
+                            ...respuesta,
+                            cuestionario_id: cuestionarioId  // Enlaza las respuestas al cuestionario
+                        }));
 
-                    if (respuestasConId.length > 0) {
-                        const { error: errorCheckboxes } = await supabase1
-                            .from('respuestas_opciones')  // Asegúrate de que esta es tu tabla en Supabase
-                            .insert(respuestasConId);
+                        if (respuestasConId.length > 0) {
+                            const { error: errorCheckboxes } = await supabase1
+                                .from('respuestas_opciones')  // Asegúrate de que esta es tu tabla en Supabase
+                                .insert(respuestasConId);
 
-                        if (errorCheckboxes) {
-                            throw errorCheckboxes;
+                            if (errorCheckboxes) {
+                                throw errorCheckboxes;
+                            }
                         }
+                    } catch (error) {
+                        console(error);
+                        alert('Error al enviar los checkboxes');
+                    }
+
+                    try {
+                        //insertar colaboraciones en Supabase
+                        // Agrega el ID del cuestionario a cada colaboración
+                        const colaboracionesConId = colaboraciones.map(colab => ({
+                            ...colab,
+                            cuestionario_id: cuestionarioId  // Enlaza cada colaboración al cuestionario principal
+                        }));
+
+                        // Inserta en Supabase
+                        const { error } = await supabase1
+                            .from('colaboraciones_innovacion')  // Nombre de la tabla en Supabase
+                            .insert(colaboracionesConId);
+
+                        if (error) {
+                            throw error;
+                        }
+
+                        alert('Colaboraciones enviadas correctamente');
+                    } catch (error) {
+                        console(error);
+                        alert('Error al enviar las colaboraciones');
                     }
 
                     alert('Formulario enviado correctamente');
                     e.target.reset();  // Limpia el formulario
 
                 } catch (error) {
-                    console.error('Error al insertar datos:', error);
+                    // console.error('Error al insertar datos:', error);
                     alert('Error al enviar el formulario');
                 }
             }
+
 
             document.getElementById('innovacion-form').addEventListener('submit', async (e) => {
                 e.preventDefault();
@@ -1620,24 +1649,46 @@
                 const formData = new FormData(e.target);
 
                 // Captura de datos principales del formulario (texto, números, radio buttons)
-                const datosFormulario = {};
-                formData.forEach((value, key) => {
-                    if (value === 'si') {
-                        datosFormulario[key] = true; // Convierte "si" a true
-                    } else if (value === 'no') {
-                        datosFormulario[key] = false; // Convierte "no" a false
-                    } else if (!isNaN(value) && value.trim() !== '') {
-                        datosFormulario[key] = parseInt(value); // Convierte números
-                    } else {
-                        datosFormulario[key] = value; // Campos de texto
-                    }
-                });
+                const datosFormulario = {
+                    // Campos de texto, número, y fecha
+                    fecha_registro: formData.get('fecha'),
+                    provincia: formData.get('provincia'),
+                    canton: formData.get('canton'),
+                    parroquia: formData.get('parroquia'),
+                    encuestador: formData.get('encuestador'),
+                    razon_social: formData.get('razon-social'),
+                    ruc: formData.get('ruc'),
+                    direccion: formData.get('direccion'),
+                    codigo_postal: formData.get('codigo-postal'),
+                    actividad_economica: formData.get('actividad-economica'),
+                    ciiu: formData.get('ciiu'),
+                    telefono: formData.get('telefono'),
+                    email: formData.get('email'),
+                    sitio_web: formData.get('sitio-web'),
+
+                    // Radio buttons (convertidos a booleano si es necesario)
+                    grupo_empresarial: formData.get('grupo-empresarial') === 'si',
+                    empresa_publica: formData.get('empresa-publica') === 'si',
+
+                    // Campos numéricos
+                    capital_extranjero: parseInt(formData.get('capital-extranjero')) || 0,
+                    cantidad_establecimientos: parseInt(formData.get('establecimientos')) || 0,
+                    inicio_actividades: parseInt(formData.get('inicio-actividades')) || null
+                };
 
                 // Captura de checkboxes seleccionados, incluyendo "Otro"
                 const respuestasCheckboxes = [];
                 document.querySelectorAll('input[type="checkbox"]:checked').forEach((checkbox) => {
                     const grupo = checkbox.name.replace('[]', '');
                     const valor = checkbox.value;
+
+                    if (!grupo.match(/^(clientes|competidores|proveedores|consultores|universidades|laboratorios|propiedad-intelectual|otras-empresas|empresas-grupo|startups|gobierno)/)) {
+
+                        respuestasCheckboxes.push({
+                            pregunta: grupo,
+                            opcion: valor || 'Sí'  // Asigna "Sí" si el checkbox no tiene un valor definido
+                        });
+                    }
 
                     if (valor === 'Otro') {
                         // Captura el valor del campo de texto asociado con "Otro"
@@ -1648,12 +1699,13 @@
                                 opcion: campoOtro.value.trim()
                             });
                         }
-                    } else {
-                        respuestasCheckboxes.push({
-                            pregunta: grupo,
-                            opcion: valor
-                        });
                     }
+                    // else {
+                    //     respuestasCheckboxes.push({
+                    //         pregunta: grupo,
+                    //         opcion: valor
+                    //     });
+                    // }
                 });
 
                 // Captura de radio buttons seleccionados
@@ -1665,25 +1717,61 @@
                 });
 
 
-            // Captura de campos de texto "Otro" asociados a grupos
+                // Captura de campos de texto "Otro" asociados a grupos
                 document.querySelectorAll('input[type="text"]').forEach((input) => {
-                const name = input.name;
+                    const name = input.name;
 
-                // Verifica si el campo pertenece a un grupo relacionado con checkboxes/radio y no está vacío
-                if (name.includes('-otro') && input.value.trim() !== '') {
-                    const grupo = name.replace('-otro', '').replace('[]', '');  // Elimina '-otro' y corchetes si existen
-                    respuestasCheckboxes.push({
-                        pregunta: grupo,
-                        opcion: input.value.trim()  // Agrega el valor del campo de texto
+                    // Verifica si el campo pertenece a un grupo relacionado con checkboxes/radio y no está vacío
+                    if (name.includes('-otro') && input.value.trim() !== '') {
+                        const grupo = name.replace('-otro', '').replace('[]', '');  // Elimina '-otro' y corchetes si existen
+                        respuestasCheckboxes.push({
+                            pregunta: grupo,
+                            opcion: input.value.trim()  // Agrega el valor del campo de texto
+                        });
+                    }
+                });
+
+                // Array para almacenar colaboraciones
+                const colaboraciones = [];
+
+                // Actores de la tabla
+                const actores = ['clientes', 'competidores', 'proveedores', 'consultores', 'universidades',
+                    'laboratorios', 'propiedad-intelectual', 'otras-empresas',
+                    'empresas-grupo', 'startups', 'gobierno'];
+
+                // Propósitos (columnas) que corresponden a los checkboxes
+                const propositos = ['id', 'ingenieria', 'capacitacion', 'asistencia', 'rsc', 'pruebas', 'financiamiento', 'marca'];
+
+                // Recorre cada actor y captura la información relacionada
+                actores.forEach((actor) => {
+                    const frecuencia = formData.get(`frecuencia-${actor}`);  // Captura la frecuencia seleccionada
+
+                    propositos.forEach((proposito) => {
+                        // Verifica si el checkbox está marcado
+                        if (formData.get(`${actor}-${proposito}`)) {
+                            colaboraciones.push({
+                                tipo_colaborador: actor.replace(/-/g, ' '),   // Reemplaza guiones por espacios (ej. "otras-empresas" -> "otras empresas")
+                                frecuencia: obtenerFrecuenciaTexto(frecuencia),  // Convierte el valor numérico de frecuencia a texto
+                                proposito: proposito                           // Propósito relacionado
+                            });
+                        }
                     });
-                }
-            });
+                });
+
 
                 // Envía los datos a Supabase
-                await insertarFormulario(datosFormulario, respuestasCheckboxes);
+                await insertarFormulario(datosFormulario, respuestasCheckboxes, colaboraciones,e);
             });
 
-
+            function obtenerFrecuenciaTexto(valor) {
+                switch (valor) {
+                    case '0': return 'Nunca';
+                    case '1': return 'Rara vez (cada varios años)';
+                    case '2': return 'Ocasionalmente (algunas veces al año)';
+                    case '3': return 'Frecuentemente (al menos una vez entre 1 a 3 meses)';
+                    default: return 'Desconocido';  // Por si hay un valor inesperado
+                }
+            }
         </script>
 
 </body>
